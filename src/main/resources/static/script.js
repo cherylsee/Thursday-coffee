@@ -29,7 +29,7 @@ document.getElementById("submit-id-button").addEventListener("click", () => {
 	const id = document.getElementById("id-number").value;
 	console.log("get this id", id);
 	let responseData;
-	axios.get(`${url}/id`, id).then((response) => {
+	axios.get(`${url}/id/${id}`, id).then((response) => {
 		console.log("Status: ", response.status);
 		responseData = response.data;
 		console.log("Data: ", response.data);
