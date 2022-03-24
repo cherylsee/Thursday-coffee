@@ -33,6 +33,13 @@ document.getElementById("submit-id-button").addEventListener("click", () => {
 		console.log("Status: ", response.status);
 		responseData = response.data;
 		console.log("Data: ", response.data);
-		document.getElementById("response").innerHTML = responseData;
+		displayData(responseData);
 	});
 });
+
+function displayData(dataObject) {
+	const node = document.getElementById("response");
+	const { name, url, desc } = dataObject;
+	let content = `Name: ${name} <br />Url: <a href="${url}">${url}</a><br />Description: ${desc}`;
+	node.innerHTML = content;
+}
