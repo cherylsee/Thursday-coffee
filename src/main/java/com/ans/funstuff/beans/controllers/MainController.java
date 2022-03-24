@@ -35,7 +35,7 @@ public class MainController {
     }
 
     @ResponseBody
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public Optional<Bookmark> getId(@PathVariable("id") Integer id) {
         System.out.println("Find bookmark #" + id);
         return bookmarkService.getBookmarkById(id);
