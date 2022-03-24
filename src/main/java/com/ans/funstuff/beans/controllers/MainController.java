@@ -1,18 +1,19 @@
 package com.ans.funstuff.beans.controllers;
 
+import com.ans.funstuff.beans.models.Bookmark;
 import com.ans.funstuff.beans.services.BookmarkService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 //@RestController
 @Controller
 public class MainController {
-    private BookmarkService bookmarkService;
+    private final BookmarkService bookmarkService;
     private ObjectMapper mapper;
 
     @GetMapping("/")
@@ -22,14 +23,22 @@ public class MainController {
 
     @ResponseBody
     @PostMapping("/add")
-    public String addUser() {
+    public String addUser(@RequestBody Bookmark bookmark) {
+        bookmarkService.addBookmark(bookmark);
         return "New bookmark added?";
     }
 
     @ResponseBody
-    @GetMapping("/id")
-    public String getId() {
-        return "This is some id";
+    @GetMapping("/all")
+    public List<Bookmark> getAll() {
+        return bookmarkService.getAllBookmarks();
+    }
+
+    @ResponseBody
+    @GetMapping("/{id}")
+    public Optional<Bookmark> getId(@PathVariable("id") Integer id) {
+        System.out.println("Find bookmark #" + id);
+        return bookmarkService.getBookmarkById(id);
     }
 
     @Autowired

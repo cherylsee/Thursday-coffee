@@ -4,7 +4,7 @@ const url = "https://thursday-coffee.azurewebsites.net/";
 function doAddBookmark(info) {
 	let responseData;
 	axios
-		.post(url, info)
+		.post(`${url}/add`, info)
 		.then((response) => {
 			console.log("Status: ", response.status);
 			responseData = response.data;
@@ -29,7 +29,7 @@ document.getElementById("submit-id-button").addEventListener("click", () => {
 	const id = document.getElementById("id-number").value;
 	console.log("get this id", id);
 	let responseData;
-	axios.get(url, id).then((response) => {
+	axios.get(`${url}/id`, id).then((response) => {
 		console.log("Status: ", response.status);
 		responseData = response.data;
 		console.log("Data: ", response.data);
