@@ -11,7 +11,7 @@ function doAddBookmark(info) {
 			console.log("Response data: ", response.data);
 			document.getElementById(
 				"response"
-			).innerHTML = `Successfully added ${info.name}() as bookmark #${response.id}`;
+			).innerHTML = `Successfully added ${info.name} as bookmark #${responseData.id}`;
 		})
 		.catch((error) => console.log(error));
 }
