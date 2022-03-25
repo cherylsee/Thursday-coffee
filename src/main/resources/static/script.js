@@ -8,7 +8,7 @@ function doAddBookmark(info) {
 		.then((response) => {
 			console.log("Status: ", response.status);
 			responseData = response.data;
-			console.log("Data: ", response.data);
+			console.log("Response data: ", response.data);
 		})
 		.catch((error) => console.log(error));
 }
@@ -35,7 +35,7 @@ document.getElementById("submit-id-button").addEventListener("click", () => {
 
 document.getElementById("submit-all-button").addEventListener("click", () => {
 	let responseData;
-	axios.get(`${url}/all`, id).then((response) => {
+	axios.get(`${url}/all`, {}).then((response) => {
 		responseData = response.data;
 		displayData(responseData);
 	});
@@ -45,15 +45,15 @@ document.getElementById("submit-all-button").addEventListener("click", () => {
 
 function displayData(dataArray) {
 	let content;
-	for (let i=0; i<dataArray.length; i++) {
-		content.push(formatIntoHTML(dataArray[i]) + "<br />");
+	for (let i = 0; i < dataArray.length; i++) {
+		content += formatIntoHTML(dataArray[i]) + "<br />";
 	}
-	
+
 	document.getElementById("response").innerHTML = content;
 }
 
 function formatIntoHTML(bookmark) {
-	const { name, url, description } = bookmark;
-	let content = `Name: ${name} <br />Url: <a href="${url}">${url}</a><br />Description: ${description}`;
+	const { id, name, url, description } = bookmark;
+	let content = `Name: ${name} &nbsp;&nbsp;&nbsp;&nbsp; ID: ${id} <br />Url: <a href="${url}">${url}</a><br />Description: ${description}`;
 	return content;
 }
