@@ -11,7 +11,7 @@ function doAddBookmark(info) {
 			console.log("Response data: ", response.data);
 			document.getElementById(
 				"response"
-			).innerHTML = `Successfully added ${info.name}`;
+			).innerHTML = `Successfully added ${info.name} as bookmark #${info.id}`;
 		})
 		.catch((error) => console.log(error));
 }
@@ -27,7 +27,6 @@ document.getElementById("submit-new-button").addEventListener("click", () => {
 });
 
 document.getElementById("submit-id-button").addEventListener("click", () => {
-	console.log("clicked");
 	const id = document.getElementById("id-number").value;
 	let responseData;
 	axios.get(`${url}/id/${id}`, id).then((response) => {
@@ -35,7 +34,6 @@ document.getElementById("submit-id-button").addEventListener("click", () => {
 		// putting it into an array to reuse stuff
 		displayData([responseData]);
 	});
-	console.log("Retrieving id ", 1);
 });
 
 document.getElementById("submit-all-button").addEventListener("click", () => {
@@ -47,6 +45,14 @@ document.getElementById("submit-all-button").addEventListener("click", () => {
 	});
 	console.log("Results: ", responseData);
 });
+
+// Quack?!
+let nodes = document.getElementsByClassName("rubber-ducky");
+for (let i = 0; i < nodes.length; i++) {
+	nodes[i].addEventListener("click", () => {
+		document.getElementById("audio_quack").play();
+	});
+}
 
 // **** end event handlers ****
 
@@ -63,9 +69,4 @@ function formatIntoHTML(bookmark) {
 	const { id, name, url, description } = bookmark;
 	let content = `Name: ${name} &nbsp;&nbsp;&nbsp;&nbsp; ID: ${id} <br />Url: <a href="${url}" target="_new">${url}</a><br />Description: ${description}`;
 	return content;
-}
-
-// Quack?!
-function duck_clicked() {
-	document.getElementById("audio_quack").play();
 }

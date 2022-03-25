@@ -18,6 +18,10 @@ input[type="text"] {
 	border-radius: 10px;
 }
 
+#response {
+	margin: auto;
+}
+
 #submit-new-button {
 	border-radius: 10px;
 	grid-area: button1;
@@ -66,11 +70,12 @@ body {
 	background-color: rgb(245, 249, 247);
 }
 
-.rubber-ducky {
+.rubber-ducky-main {
 	position: relative;
 	left: 10%;
-	bottom: 112px;
+	bottom: 90px;
 	z-index: 5;
+	max-width: 160px;
 }
 
 .rubber-ducky-head {
