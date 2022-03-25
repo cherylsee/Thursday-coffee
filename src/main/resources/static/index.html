@@ -9,31 +9,26 @@
 	</head>
 
 	<body>
-		
 
-		<br />
+		<div class="input-form-box">
+			<label for="name" id="name-label">Name: </label>
+			<input type="text" name="name" id="name-field"> <br />
 
-		<div>
-			<form>
-				<label for="name" id="name-label">Name: </label>
-				<input type="text" name="name" id="name-field"> <br />
-	
-				<label for="url" id="url-label">Url: </label>
-				<input type="text" name="url" id="url-field"> <br />
-	
-				<label for="description" id="description-label">Description: </label>
-				<input type="text" name="description" id="description-field"> <br />
-	
-				<button type="button" id="submit-new-button" class="btn btn-primary">Add new bookmark</button>
-			</form>
-			
+			<label for="url" id="url-label">Url: </label>
+			<input type="text" name="url" id="url-field"> <br />
+
+			<label for="description" id="description-label">Description: </label>
+			<input type="text" name="description" id="description-field"> <br />
+
+			<button id="submit-new-button" class="btn btn-primary submit-button">Add new bookmark</button>
 		</div>
 
-		<div class="retrieve">
+		<div class="retrieve input-form-box">
 			<label for="id">Id</label>
 			<input type="text" name="id-number" id="id-number"> <br />
 
-			<button type="button" id="submit-id-button" class="btn btn-primary">Retrieve by ID</button>
+			<button id="submit-id-button" class="btn btn-primary submit-button">Retrieve by ID</button>
+			<button id="submit-all-button" class="btn btn-primary submit-button">Show all bookmarks</button>
 		</div>
 
 
@@ -42,9 +37,9 @@
 		</div>
 
 		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 		<script src="script.js"></script>
 		<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 	</body>
 </html>

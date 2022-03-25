@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-//@RestController
+//@RestController - not using because I'm hosting the page (index.html)
 @Controller
 public class MainController {
     private final BookmarkService bookmarkService;
@@ -23,9 +23,8 @@ public class MainController {
 
     @ResponseBody
     @PostMapping("/add")
-    public String addUser(@RequestBody Bookmark bookmark) {
-        bookmarkService.addBookmark(bookmark);
-        return "New bookmark added?";
+    public Bookmark addUser(@RequestBody Bookmark bookmark) {
+        return bookmarkService.addBookmark(bookmark);
     }
 
     @ResponseBody
@@ -37,7 +36,6 @@ public class MainController {
     @ResponseBody
     @GetMapping("/id/{id}")
     public Optional<Bookmark> getId(@PathVariable("id") Integer id) {
-        System.out.println("Find bookmark #" + id);
         return bookmarkService.getBookmarkById(id);
     }
 

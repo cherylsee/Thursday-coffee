@@ -24,8 +24,9 @@ public class BookmarkService {
         return bookmarkRepo.findById(bookmarkId);
     }
 
-    public void addBookmark(Bookmark bookmark) {
-        bookmarkRepo.save(bookmark);
+    public Bookmark addBookmark(Bookmark bookmark) {
+        Bookmark result = bookmarkRepo.save(bookmark);
+        return result;
     }
 
     public List<Bookmark> getAllBookmarks() {

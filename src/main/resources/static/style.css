@@ -1,2 +1,67 @@
-.form-layout {
+.input-form-box {
+	min-width: 70vh;
+	max-width: 100vh;
+	display: grid;
+	grid-template-areas:
+		"name-label name-field"
+		"url-label url-field"
+		"description-label description-field"
+		". button1"
+		". button2";
+	grid-template-columns: 100px auto;
+	grid-template-rows: auto auto auto auto;
+	row-gap: 10px;
+	margin: auto;
+}
+
+input[type="text"] {
+	border-radius: 10px;
+}
+
+#submit-new-button {
+	border-radius: 10px;
+	grid-area: button1;
+}
+
+#submit-id-button {
+	border-radius: 10px;
+	grid-area: button1;
+}
+
+#submit-all-button {
+	border-radius: 10px;
+	grid-area: button2;
+}
+
+#name-label {
+	grid-area: name-label;
+}
+
+#name-field {
+	grid-area: name-field;
+}
+
+#url-label {
+	grid-area: url-label;
+}
+
+#url-field {
+	grid-area: url-field;
+}
+
+#description-label {
+	grid-area: description-label;
+}
+
+#description-field {
+	grid-area: description-field;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	row-gap: 20px;
+	padding-top: 50px;
+	background-color: rgb(245, 249, 247);
 }

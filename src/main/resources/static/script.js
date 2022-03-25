@@ -13,33 +13,47 @@ function doAddBookmark(info) {
 		.catch((error) => console.log(error));
 }
 
-// event handlers
+// **** event handlers ****
 document.getElementById("submit-new-button").addEventListener("click", () => {
-	console.log("button clicked");
 	const info = {
 		name: document.getElementById("name-field").value,
 		url: document.getElementById("url-field").value,
 		description: document.getElementById("description-field").value,
 	};
-	console.log(info);
 	doAddBookmark(info);
 });
 
 document.getElementById("submit-id-button").addEventListener("click", () => {
 	const id = document.getElementById("id-number").value;
-	console.log("get this id", id);
 	let responseData;
 	axios.get(`${url}/id/${id}`, id).then((response) => {
-		console.log("Status: ", response.status);
 		responseData = response.data;
-		console.log("Data: ", response.data);
+		// putting it into an array to reuse stuff
+		displayData([responseData]);
+	});
+});
+
+document.getElementById("submit-all-button").addEventListener("click", () => {
+	let responseData;
+	axios.get(`${url}/all`, id).then((response) => {
+		responseData = response.data;
 		displayData(responseData);
 	});
 });
 
-function displayData(dataObject) {
-	const node = document.getElementById("response");
-	const { name, url, desc } = dataObject;
-	let content = `Name: ${name} <br />Url: <a href="${url}">${url}</a><br />Description: ${desc}`;
-	node.innerHTML = content;
+// **** end event handlers ****
+
+function displayData(dataArray) {
+	let content;
+	for (let i=0; i<dataArray.length; i++) {
+		content.push(formatIntoHTML(dataArray[i]) + "<br />");
+	}
+	
+	document.getElementById("response").innerHTML = content;
+}
+
+function formatIntoHTML(bookmark) {
+	const { name, url, description } = bookmark;
+	let content = `Name: ${name} <br />Url: <a href="${url}">${url}</a><br />Description: ${description}`;
+	return content;
 }
