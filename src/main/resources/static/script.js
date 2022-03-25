@@ -27,6 +27,7 @@ document.getElementById("submit-new-button").addEventListener("click", () => {
 });
 
 document.getElementById("submit-id-button").addEventListener("click", () => {
+	console.log("clicked");
 	const id = document.getElementById("id-number").value;
 	let responseData;
 	axios.get(`${url}/id/${id}`, id).then((response) => {
@@ -38,6 +39,7 @@ document.getElementById("submit-id-button").addEventListener("click", () => {
 });
 
 document.getElementById("submit-all-button").addEventListener("click", () => {
+	console.log("clicked");
 	let responseData;
 	axios.get(`${url}/all`, {}).then((response) => {
 		responseData = response.data;
