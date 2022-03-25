@@ -9,6 +9,9 @@ function doAddBookmark(info) {
 			console.log("Status: ", response.status);
 			responseData = response.data;
 			console.log("Response data: ", response.data);
+			document.getElementById(
+				"response"
+			).innerHTML = `Successfully added ${info.name}`;
 		})
 		.catch((error) => console.log(error));
 }
@@ -31,6 +34,7 @@ document.getElementById("submit-id-button").addEventListener("click", () => {
 		// putting it into an array to reuse stuff
 		displayData([responseData]);
 	});
+	console.log("Retrieving id ", 1);
 });
 
 document.getElementById("submit-all-button").addEventListener("click", () => {
@@ -39,6 +43,7 @@ document.getElementById("submit-all-button").addEventListener("click", () => {
 		responseData = response.data;
 		displayData(responseData);
 	});
+	console.log("Results: ", responseData);
 });
 
 // **** end event handlers ****
