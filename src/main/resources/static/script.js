@@ -11,7 +11,7 @@ function doAddBookmark(info) {
 			console.log("Response data: ", response.data);
 			document.getElementById(
 				"response"
-			).innerHTML = `Successfully added ${info.name} as bookmark #${info.id}`;
+			).innerHTML = `Successfully added ${info.name}() as bookmark #${response.id}`;
 		})
 		.catch((error) => console.log(error));
 }
@@ -57,7 +57,7 @@ for (let i = 0; i < nodes.length; i++) {
 // **** end event handlers ****
 
 function displayData(dataArray) {
-	let content;
+	let content = "";
 	for (let i = 0; i < dataArray.length; i++) {
 		content += formatIntoHTML(dataArray[i]) + "<br />";
 	}
@@ -67,6 +67,6 @@ function displayData(dataArray) {
 
 function formatIntoHTML(bookmark) {
 	const { id, name, url, description } = bookmark;
-	let content = `Name: ${name} &nbsp;&nbsp;&nbsp;&nbsp; ID: ${id} <br />Url: <a href="${url}" target="_new">${url}</a><br />Description: ${description}`;
+	let content = `<b>Name:</b> ${name} &nbsp;&nbsp;&nbsp;&nbsp; <b>ID:</b> ${id} <br /><b>Url:</b> <a href="${url}" target="_new">${url}</a><br /><b>Description:</b> ${description}`;
 	return content;
 }
