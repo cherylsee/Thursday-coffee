@@ -54,6 +54,11 @@ function displayData(dataArray) {
 
 function formatIntoHTML(bookmark) {
 	const { id, name, url, description } = bookmark;
-	let content = `Name: ${name} &nbsp;&nbsp;&nbsp;&nbsp; ID: ${id} <br />Url: <a href="${url}">${url}</a><br />Description: ${description}`;
+	let content = `Name: ${name} &nbsp;&nbsp;&nbsp;&nbsp; ID: ${id} <br />Url: <a href="${url}" target="_new">${url}</a><br />Description: ${description}`;
 	return content;
+}
+
+// Quack?!
+function duck_clicked() {
+	document.getElementById("audio_quack").play();
 }
